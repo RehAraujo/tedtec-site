@@ -21,5 +21,11 @@ wp-content/upgrade/
 wp-content/backups*/
 wp-content/debug.log
 
+# Local WordPress snapshots and raw editor exports
+# These may contain transient nonces, author metadata and wp-admin URLs.
+wordpress/backups/
+wordpress/pages/
+wordpress/previews/**/page-*.html
+
 # Distribution artifacts
 *.zip
