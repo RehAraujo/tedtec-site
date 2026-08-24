@@ -18,6 +18,7 @@ Elementos coordenados:
 - movimento curto, sutil e reversível;
 - `opacity` e `transform` preferidos para elementos DOM;
 - um ciclo com `requestAnimationFrame` para atualização visual;
+- o ciclo do Canvas pausa quando o Hero sai da viewport e retoma sem duplicar RAFs;
 - nenhuma animação deve alterar a estrutura editorial abaixo do Hero.
 
 ## Progressão de saída

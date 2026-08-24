@@ -7,6 +7,9 @@ As versões abaixo correspondem aos plugins próprios. O site completo ainda nã
 - organiza a documentação técnica e operacional do projeto;
 - inclui as fontes do Hero motion e do footer global já observadas em produção;
 - remove nomes e textos de terceiros do fallback versionado de avaliações;
+- preserva o foco dos indicadores do carrossel durante a navegação;
+- pausa o Canvas do Hero quando ele está fora da viewport;
+- normaliza o link telefônico do footer para o formato internacional;
 - protege exports brutos e backups locais contra inclusão acidental no Git.
 
 ## TED TEC Reviews Carousel 1.1.0 — 2026-08-24

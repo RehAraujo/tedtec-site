@@ -28,6 +28,7 @@
 
 - [ ] Notebook/HUD/grid/órbitas aparecem sem cobrir texto.
 - [ ] Curtain reveal é natural e sem gradiente leitoso, blur ou halo.
+- [ ] Canvas pausa fora da viewport e retoma ao voltar ao Hero.
 - [ ] Conteúdo essencial permanece legível sem Canvas/JavaScript.
 
 ## Avaliações
@@ -36,6 +37,7 @@
 - [ ] 12 cards válidos carregados quando `limit="12"`.
 - [ ] 3/2/1 cards por vez nos breakpoints definidos.
 - [ ] Setas, indicadores, ciclo e resize funcionam.
+- [ ] Indicadores preservam o foco após clique, Enter e Space.
 - [ ] Swipe não bloqueia o scroll vertical.
 - [ ] Nota, total, ordem e link para Google estão coerentes.
 - [ ] Fallbacks não introduzem duplicações.

@@ -59,19 +59,36 @@
 
     function renderDots() {
       var starts = pageStarts();
-      dots.innerHTML = '';
       dots.hidden = starts.length <= 1;
 
-      starts.forEach(function (start, dotIndex) {
+      while (dots.children.length < starts.length) {
         var button = document.createElement('button');
         button.type = 'button';
-        button.setAttribute('aria-label', 'Ir para o grupo ' + (dotIndex + 1));
-        if (start === index) button.setAttribute('aria-current', 'true');
         button.addEventListener('click', function () {
-          goTo(start);
+          goTo(Number(this.dataset.ttStart));
           resetAutoplay();
         });
         dots.appendChild(button);
+      }
+
+      var focusedDot = document.activeElement && document.activeElement.parentNode === dots
+        ? Array.prototype.indexOf.call(dots.children, document.activeElement)
+        : -1;
+
+      while (dots.children.length > starts.length) {
+        dots.removeChild(dots.lastElementChild);
+      }
+
+      if (focusedDot >= starts.length && dots.lastElementChild) {
+        dots.lastElementChild.focus();
+      }
+
+      starts.forEach(function (start, dotIndex) {
+        var button = dots.children[dotIndex];
+        button.dataset.ttStart = String(start);
+        button.setAttribute('aria-label', 'Ir para o grupo ' + (dotIndex + 1));
+        if (start === index) button.setAttribute('aria-current', 'true');
+        else button.removeAttribute('aria-current');
       });
     }
 
@@ -117,7 +134,7 @@
 
     function startAutoplay() {
       stopAutoplay();
-      if (reducedMotion.matches || document.hidden || pageStarts().length <= 1) return;
+      if (reducedMotion.matches || document.hidden || root.contains(document.activeElement) || pageStarts().length <= 1) return;
       autoplayId = window.setInterval(next, 5000);
     }
 
