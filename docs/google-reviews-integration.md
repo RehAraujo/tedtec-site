@@ -64,6 +64,19 @@ O parâmetro `limit` aceita de 1 a 30 e afeta apenas a renderização. Todas as 
 
 A instalação validada usa o feed **954** para a unidade TED TEC. A atualização desse feed é responsabilidade do Rich Showcase e depende do WP-Cron. O adaptador não dispara sincronizações e não altera cron, cache ou credenciais da dependência.
 
+### Snapshot de validação
+
+Na última auditoria operacional realizada antes desta consolidação:
+
+- Rich Showcase gratuito observado na versão 6.9.10;
+- 27 avaliações presentes na base local;
+- total público do estabelecimento informado pelo feed: 42;
+- avaliação de Karolyna Veloso presente na base;
+- shortcode da Home 509 renderizando 12 avaliações;
+- navegação pública validada em 3/2/1 cards por viewport.
+
+Esses números são um registro pontual, não constantes do sistema. A contagem e a avaliação mais recente devem ser consultadas novamente no WordPress quando o estado atual for relevante.
+
 O identificador do feed não é uma credencial. Nenhuma API key, token ou senha deve ser incluída no repositório ou nesta documentação.
 
 ## Resiliência
@@ -72,8 +85,10 @@ O plugin salva a última resposta normalizada válida na opção WordPress `tedt
 
 1. tentar obter e validar os dados atuais do Rich Showcase;
 2. usar o último payload válido salvo pelo adaptador;
-3. usar o fallback estático seguro incluído no plugin;
+3. usar um fallback estático sem dados pessoais;
 4. apresentar uma mensagem com acesso às avaliações no Google se não houver conteúdo renderizável.
+
+O fallback versionado não contém nomes nem textos copiados de avaliações. Ele também não cria depoimentos genéricos: em uma indisponibilidade total, a interface assume explicitamente o estado temporário e direciona ao perfil público no Google.
 
 As seguintes situações são tratadas sem interromper a home:
 
